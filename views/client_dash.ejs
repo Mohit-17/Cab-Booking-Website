@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    <style>
+        body{
+            margin:0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding:0px;
+            background: url("../images/journey2.jpg") center center fixed;
+            background-size:cover;
+        }
+        #header{
+            min-height:50px;
+            background-color:rgb(8, 8, 8);
+            font-weight:bold;
+            color:white;
+            border-bottom:2px rgb(206, 157, 157) solid;
+        }
+        .active{
+            background-color:rgb(176, 57, 223);
+            color:white;
+        }
+        li:hover{
+            background-color: rgb(40, 148, 148);
+            cursor:pointer;
+        }
+        #container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;         
+        }
+        .brand{
+            float:left;
+            padding:0px 10px;
+        }
+        .brand:hover{
+            cursor:pointer;
+        }
+        #header h2{
+            padding:0px;
+        }
+        #header ul{
+            text-align:center;
+            margin:15px 20px;
+            padding:10px 10px 10px 450px; 
+        }
+        #header li{
+            display:inline;
+            padding:20px;
+            border-radius:20px;
+        }
+        #header a{
+            text-decoration: none;
+            color:white;
+        }
+        footer{
+            background-color:#ff9e00;
+            color:white;
+            text-align:center;
+            padding:5px;
+            min-height:40px;
+            margin-top: 19%;
+        }
+        h3{
+            background-color:black;
+            color:white;
+            padding:10px;
+            text-align:center;
+        }   
+        #request li, #accept li{
+            width:80%;
+            margin:auto auto;
+            border-radius:10px;
+            padding:10px;
+            text-align:center;
+            margin-top:10px;
+            text-decoration:none;
+            color:black;
+            font-size:16px;
+            font-weight:bold;
+            background-color: rgb(127, 173, 89);
+        }
+        #request li:hover, #accept li:hover{
+            background-color: rgb(40, 148, 148);
+            cursor:pointer;
+        }
+        #accept table tr{
+            background-color:rgb(3, 140, 158);
+        }
+        #request{
+            width:100%;
+            margin: auto auto;
+        }
+        table{
+            color:white;
+            border:white 2px solid;
+            padding:5px;
+        }
+        tr{
+            background-color:black;
+        }
+        th{
+            width:250px;
+            padding:10px;
+        }
+        td{
+            text-align:center;
+            padding:10px;
+            cursor:pointer;
+        }
+        #cancel{
+            padding:5px;
+            width:100px;
+            background-color:rgb(12, 172, 137);
+            font-weight:bold;
+            font-size:16px;
+            margin-left:45%;
+            border-radius:5px;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+            <div id="header">
+                <div id="container">
+                    <div class="brand">
+                        <img src="/images/site-logo.jpg"></img>
+                    </div>
+                    <nav>
+                        <ul type="none">
+
+                            <!-- set links -->
+
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/auth/logout">Logout</a></li>
+                            <li><a href="/profile">Profile</a></li>
+                            <li class="active"><a href="/register/client_dashboard">Dashboard</a></li>
+                          
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div id="middle">
+                <div id="accept">
+                    <!---Retrieve Requests Accepted-->
+                    <h3>--- Accepted requests ---</h3>
+                    <table id="">
+                        <tr><th>Id</th> <th>Pick Up Location</th><th>Drop Of Location</th><th>Date and Time</th><th>Driver Contact No.</th><th>Driver Username</th></tr>
+                        <% responses.forEach(function(elements) { %> 
+                            <tr><td><%= elements.id %></td><td > <%= elements.Pick_Up %> </td><td><%= elements.Drop %><td> <%= elements.When %> </td><td> <%= elements.contact %> </td><td> <%= elements.name %> </td></tr>
+                            </input>
+                        <% }); %>
+                    </table>
+                </div>
+                <div id="request">
+                    <!---Retrieve Requests-->
+                    <h3>--- Pending Requests ---</h3>
+                    <table id="request">
+                        <tr><th>Id</th> <th>Pick Up Location</th><th>Drop Of Location</th><th>Date and Time</th></tr>
+                        <% array.forEach(function(elements) { %>
+                            <tr class = "req"><td><%= elements.id %></td><td > <%= elements.Pick_Up %> </td><td><%= elements.Drop %><td> <%= elements.When %> </td></td></tr>
+                            </input>
+                        <% }); %>
+                        
+                    </table>
+                    <br /><br />
+                    <button type="submit" id="cancel" onclick="cancel()">Cancel</button>    
+                </div>
+               
+            </div>
+            <footer>
+                <h2>CITYCAB, Copyright &copy 2020</h2>
+            </footer>
+        
+            <script>
+                var array=[];
+                $(function(){
+                    var set=false;
+                    $(".req").mouseover(function(){
+                        $(this).css("background-color","rgb(17, 158, 52)");
+                    });
+                    $(".req").mouseout(function(){
+                        if(this.set){
+                            $(this).css("background-color","white");
+                        }
+                        else{
+                            $(this).css("background-color","");
+                        }
+                    });
+
+                    $(".req").click(function(){
+                        this.set=true;
+                        array.push(this);
+                        console.log(array);
+                        $(this).css("background-color","white");
+                        $(this).css("color","black");
+                        
+                    });
+                });
+                function cancel(){
+                    for(i=0;i<=array.length - 1;i++){
+                        $(array[i]).hide();
+                        b = array[i].childNodes[0].innerHTML;
+                        c = array[i].childNodes[1].innerHTML;
+                        d = array[i].childNodes[2].innerHTML;
+                        e = array[i].childNodes[3].innerHTML;
+                    }
+                    $.ajax({
+                        type : "POST",
+                        url:'http://cab-booking-wbsite.herokuapp.com/register/client_dashboard',
+                        data: {id:b,Pick_Up:c,Drop:d,When:e}
+                })
+                }
+                
+            </script>
+    </body>
+</html>

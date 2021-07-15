@@ -1,0 +1,209 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    <style>
+        body{
+            margin:0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding:0px;
+            background: url("../images/journey2.jpg") center center fixed;
+            background-size:cover;
+        }
+        #header{
+            min-height:50px;
+            background-color:rgb(8, 8, 8);
+            font-weight:bold;
+            color:white;
+            border-bottom:2px rgb(206, 157, 157) solid;
+        }
+        .active{
+            background-color:rgb(176, 57, 223);
+            color:white;
+        }
+        li:hover{
+            background-color: rgb(40, 148, 148);
+            cursor:pointer;
+        }
+        #container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;         
+        }
+        .brand{
+            float:left;
+            padding:0px 10px;
+        }
+        .brand:hover{
+            cursor:pointer;
+        }
+        #header h2{
+            padding:0px;
+        }
+        #header ul{
+            text-align:center;
+            margin:15px 20px;
+            padding:10px 10px 10px 450px; 
+        }
+        #header li{
+            display:inline;
+            padding:20px;
+            border-radius:20px;
+        }
+        #header a{
+            text-decoration: none;
+            color:white;
+        }
+        footer{
+            background-color:#ff9e00;
+            color:white;
+            text-align:center;
+            padding:5px;
+            min-height:40px;
+            margin-top: 10px;
+        }
+        .profile{
+            height:auto;
+            width:600px;
+            padding:20px;
+            margin-top:20px;
+            border-radius:20px;
+            background-color:black;
+            color:aliceblue
+        }
+        #name{
+            text-align:center;
+        }
+        #middle{
+            width:35%;
+            margin:auto auto;
+        }
+        #usrname, #cont, #addr{
+            padding:10px;
+            border-radius:10px;
+            background-color:brown;
+            text-align:center;
+
+        }
+        .edit{
+            background-color: rgb(20, 112, 173);
+            padding:8px;
+            width:100px;
+            border-radius:5px;
+            margin-right:10px;
+            color:white;
+            font-weight:bold;
+            text-transform:uppercase;
+            float:right;
+        }
+        #details{
+            margin-top:40px;
+        }
+        .profbtn{
+            margin-top:20px;
+            padding:10px;
+            background-color:rgb(161, 252, 70);
+            font-weight:bold;
+            font-size:16px;
+            text-transform:uppercase;
+            border-radius:10px;
+        }
+        .center{
+            text-align:center;
+        }
+        #usr,#num{
+            background-color:transparent;
+            font-weight:bold;
+            font-size:18px;
+            color:white;
+            padding:5px;
+            border:none;
+        }
+        #address{
+            width:400px;
+            height:100px;
+            background-color:transparent;
+            font-weight:bold;
+            font-size:18px;
+            color:white;
+            padding:5px;
+            border:none;
+            resize:none;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+            <div id="header">
+                <div id="container">
+                    <div class="brand">
+                        <img src="/images/site-logo.jpg"></img>
+                    </div>
+                    <nav>
+                        <ul type="none">
+
+                            <!--  Change href Accordingly  -->
+                            
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/auth/Logout">Logout</a></li>
+                            <li class="active"><a href = "/profile">Profile</a></li>
+                            <li><a href="/register/client_dashboard">Dashboard</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="middle">                   
+                <div class="profile">
+                    <div id="name"><h1>  Welcome , <br> <%= username %>   </h1></div><hr>
+                    <div id="details">
+                        <form action="/profile" method="POST">
+                            <h2>
+                                <label id="usrname">Username : </label>
+                                
+                                <!---User--> <input name = "usr"  id="usr" readonly="readonly" value = "<%= username %>"> <button type="button" class="edit" id="edit1">Edit</button><br/><br/>
+                                
+                                <label id="cont"> Contact No :</label>
+                                
+                                <!--Contact--> <input name="num" id="num" readonly="readonly" value="<%= contact %>">  <button type="button" class = "edit" id="edit2">Edit</button> <br/><br/>
+                                
+                                <label id="addr">Address :</label> 
+
+                                <!--Address --> 
+                                    
+                                    <div> <br/> <textarea name="address" id="address" type="address" readonly="readonly"><%= address %></textarea></div>
+                                    <button type="button" class="edit" id="edit3">Edit</button> <br/><br/>
+                                <div class="center"><hr><button type = "submit" class="profbtn" id="commit">Save Changes</button></div>
+                            </h2>
+                        </form>
+                        <form action="/profile/delete_account" method="POST">
+                            <div class="center"><hr><button type = "submit" class="profbtn" id="commit">Delete Account</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <h2>CITYCAB, Copyright &copy 2020</h2>
+            </footer>
+        
+            <script>
+                document.getElementById("edit1").onclick=function(){
+                    document.getElementById("usr").removeAttribute('readonly');
+                };
+                document.getElementById("edit2").onclick=function(){
+                    document.getElementById("num").removeAttribute('readonly');
+                };
+                document.getElementById("edit3").onclick=function(){
+                    document.getElementById("address").removeAttribute('readonly');
+                };
+                
+                document.getElementById("commit").onclick=function(){
+                    document.getElementById("usr").readOnly=true;
+                    document.getElementById("num").readOnly=true;
+                    document.getElementById("num").readOnly=true;
+                };
+            </script>
+    </body>
+</html>

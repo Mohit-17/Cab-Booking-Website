@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    <style>
+        p{
+            color:rgb(248, 25, 25);
+            padding: 5px;
+        }
+        body{
+            margin:0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding:0px;
+            background: url("/images/journey2.jpg") center center fixed;
+            background-size:cover;
+        }
+        #header{
+            min-height:50px;
+            background-color:rgb(8, 8, 8);
+            font-weight:bold;
+            color:white;
+            border-bottom:2px rgb(206, 157, 157) solid;
+        }
+        .active{
+            background-color:rgb(176, 57, 223);
+            color:white;
+        }
+        li:hover{
+            background-color: rgb(40, 148, 148);
+            cursor:pointer;
+        }
+        #container{
+            width:80%;
+            margin:auto;
+            overflow:hidden;         
+        }
+        .brand{
+            float:left;
+            padding:0px 10px;
+        }
+        .brand:hover{
+            cursor:pointer;
+        }
+        #header h2{
+            padding:0px;
+        }
+        #header ul{
+            text-align:center;
+            margin:15px 20px;
+            padding:10px 10px 10px 450px; 
+        }
+        #header li{
+            display:inline;
+            padding:20px;
+            border-radius:20px;
+        }
+        #header a{
+            text-decoration: none;
+            color:white;
+        }
+        footer{
+            background-color:#ff9e00;
+            color:white;
+            margin-top: 15%;
+            text-align:center;
+            padding:5px;
+            min-height:40px;
+        }
+        
+        
+        #form{
+            margin-top:20px;
+            text-align:center;
+            font-weight:bold;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding:15px;
+            border-radius:10px;
+            width:50%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        .lbl{
+            font-weight:bold;
+            color:rgb(0, 0, 0);
+            text-transform: uppercase;
+        }
+        .input{
+            margin-top:5px;
+            height:30px;
+            width:250px;
+            font-size:15px;
+            font-weight:bold;
+            color:rgb(9, 34, 146);
+            border-radius:20px;
+            border:black 2px solid;
+            text-align:center;
+        }
+        #regbtn{
+            margin-top:10px;
+            font-size:16px;
+            width:150px;
+            font-weight: bold;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+            <div id="header">
+                <div id="container">
+                    <div class="brand">
+                        <img src="/images/site-logo.jpg"></img>
+                    </div>
+                    <nav>
+                        <ul type="none">
+                            <li><a href="/">Home</a></li>
+                            <!-- <li class="active"><a href = "/register">Register</a></li> -->
+                            <!-- <li><a href="/register/login">Login</a></li> -->
+                          
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="form">
+                <form action="/register/details" method="POST">
+                    <label for="name" class="lbl">Username</label> <br ><input type="text" name="name" class="input" >  <br>
+                    <label for="contact_no" class="lbl">Contact No</label> <br> <input type="number" name="contact" class="input">  <br>
+                    <label for="address" class="lbl">Address</label> <br> <input type="text" name="address" class="input">  <br>
+                    
+                    <br>
+                    <div id="radioreg">
+                        <label class="lbl" for="As">Registration As</label><br>
+                        <input type="radio" name="As" id="client" value="on"><label for="client" class="lbl">Client</label>
+                        <input type="radio" name="As" id="driver" value="off"><label for="driver" class="lbl">Cab Driver</label>
+                    </div>
+                    <br>
+                    <div id="radiobox">
+                        <label class="lbl" for="Type">Registration As</label>
+                        <br>
+                        <input type="radio" name="type" value = "Hatchback" id="rd1"><label for="rd1" class="lbl">Hatchback</label>
+                        <input type="radio" name="type" value = "SUV" id="rd2"><label for="rd2" class="lbl">SUV</label>
+                        <input type="radio" name="type" value = "Sedan" id="rd3"><label for="rd3" class="lbl">Sedan</label>
+                        <input type="radio" name="type" value = "Luxury"id="rd4"><label for="rd4" class="lbl">Luxury</label>
+                    </div>
+                    <% array.forEach(function(elements) {  %>
+                        <p class="ui-type-error"><strong><%= elements.msg %></strong></p>
+                    <% }); %>   
+                    <br/><br />
+                    <button type="submit" id="regbtn">Register</button>
+                </form>
+            </div>
+            <footer>
+                <h2>CITYCAB, Copyright &copy 2020</h2>
+            </footer>
+        
+            <script>
+            $(function(){
+      
+                
+                $("#regbtn").button({
+                    icons:{
+                        primary:"ui-icon-person"
+                    }
+                });
+                $("#radiobox").buttonset().hide();
+                $("#radioreg").buttonset();
+                $("input:radio[name=As]").click(function(){
+                    var value=$(this).attr('id');
+                    if(value=='driver'){
+                        $("#radiobox").buttonset().show();
+                    }
+                    else{
+                        $("#radiobox").buttonset().hide();
+                    }
+                });
+                if($('#radioreg :radio:checked').val()=='off'){
+                    
+                }
+                
+               
+            });
+            </script>
+    </body>
+</html>

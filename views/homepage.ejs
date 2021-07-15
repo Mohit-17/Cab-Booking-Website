@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .google-btn{
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    #btn{
+        border: black 2px solid;
+        padding: 10px;
+        border-radius: 10px;
+        width: 90px;
+    }
+    body{
+        margin:0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding:0px;
+        background: url("../images/journey.webp") center center fixed;
+        background-size:cover;
+        text-align: center;
+    }
+    #header{
+        min-height:50px;
+        background-color:rgb(8, 8, 8);
+        font-weight:bold;
+        color:white;
+        border-bottom:2px rgb(206, 157, 157) solid;
+    }
+    .active{
+        background-color:rgb(176, 57, 223);
+        color:white;
+    }
+    li:hover{
+        background-color: rgb(40, 148, 148);
+        cursor:pointer;
+    }
+    #container{
+        width:80%;
+        margin:auto;
+        overflow:hidden;         
+    }
+    .brand{
+        float:left;
+        padding:0px 10px;
+    }
+    .brand:hover{
+        cursor:pointer;
+    }
+    #header h2{
+        padding:0px;
+    }
+    #header ul{
+        text-align:center;
+        margin:15px 20px;
+        padding:10px 10px 10px 250px; 
+    }
+    #header li{
+        display:inline;
+        padding:20px;
+        border-radius:20px;
+    }
+    #header a{
+        text-decoration: none;
+        color:white;
+    }
+    footer{
+        background-color:#ff9e00;
+        color:white;
+        margin-top:100%;
+        text-align:center;
+        padding:10px auto;
+        min-height:40px;
+    }
+    
+    #form{
+        margin-top:20px;
+        text-align:center;
+        font-weight:bold;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding:15px;
+        border-radius:10px;
+        width:50%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .lbl{
+        font-weight:bold;
+        color:rgb(0, 0, 0);
+        text-transform: uppercase;
+    }
+    .input{
+        margin-top:5px;
+        height:30px;
+        width:250px;
+        font-size:15px;
+        font-weight:bold;
+        color:rgb(9, 34, 146);
+        border-radius:20px;
+        border:black 2px solid;
+        text-align:center;
+    }
+    #regbtn{
+        margin-top:10px;
+        font-size:16px;
+        width:150px;
+        font-weight: bold;
+    }
+</style>
+    <title>Login</title>
+</head>
+<body>
+    <div id="header">
+        <div id="container">
+            <div class="brand">
+                <img src="/images/site-logo.jpg"></img>
+            </div>
+            <nav>
+                <ul type="none">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href = "/register">Register</a></li>
+                    <li><a href="/register/login">Login</a></li>
+                  
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <header>
+        <h1>Homepage</h1>
+    </header>
+    <main>
+        <!-- <button id="btn">
+            <a class="google-btn" href="/auth/google">Google</a>
+        </button> -->
+    </main>
+</body>
+</html>

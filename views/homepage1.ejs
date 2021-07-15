@@ -1,0 +1,374 @@
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <style>
+        body {
+            margin: 0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 0px;
+            background: url("/images/journey2.jpg") no-repeat center center;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 800px;
+
+        }
+
+        #header {
+            min-height: 50px;
+            background-color: rgb(8, 8, 8);
+            font-weight: bold;
+            color: white;
+            border-bottom: 2px rgb(206, 157, 157) solid;
+        }
+
+        #link {
+            margin-top: 50px;
+            min-height: 50px;
+            background-color: rgb(8, 8, 8);
+            font-weight: bold;
+            color: white;
+            border-bottom: 2px rgb(206, 157, 157) solid;
+        }
+
+        .active {
+            background-color: rgb(176, 57, 223);
+            color: white;
+        }
+
+        #header li:hover,
+        #link li:hover {
+            background-color: rgb(40, 148, 148);
+            cursor: pointer;
+        }
+
+        #container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .brand {
+            float: left;
+            padding: 0px 10px;
+        }
+
+        .brand:hover {
+            cursor: pointer;
+        }
+
+        #header h2 {
+            padding: 0px;
+        }
+
+        #header ul,
+        #link ul {
+            text-align: center;
+            margin: 15px 20px;
+            padding: 10px 10px 10px 450px;
+        }
+
+        #header li,
+        #link li {
+            display: inline;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        #header a,
+        #link a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #footer {
+            background-color: #ff9e00;
+            color: white;
+            margin-top: 0px;
+            text-align: center;
+            padding: 5px;
+            min-height: 40px;
+        }
+
+        /*  -----  - --  - - - - -   ------- */
+
+        .bod {
+            background: black;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            width: 50%;
+            padding: 10px 20px 30px 20px;
+            margin: 20px auto;
+            /* */
+        }
+
+        #place {
+            width: 80%;
+            margin: auto auto;
+        }
+
+        .in1 {
+            margin: auto auto;
+            margin-bottom: 20px;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            width: 80%;
+            box-shadow: inset;
+            border-radius: 5px;
+            border-color: aliceblue;
+            border: black 2px solid;
+            
+        }
+
+        #ip2 {
+            margin-left: -15px;
+        }
+
+        #ip3 {
+            margin-top: 5px;
+            margin-left: 55px;
+            float: left;
+            width: 40%;
+        }
+
+        .btn1 {
+            margin-top: 10px;
+            border-radius: 10px;
+            width: 150px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        .Social {
+            float: left;
+
+        }
+
+        #bod2 li {
+            display: inline;
+        }
+
+        #ul1 {
+
+            text-align: center;
+        }
+
+        .middle {
+            margin-top: 50px;
+            margin-left: 10%;
+            margin-right: 10%;
+            background: whitesmoke;
+            color: black;
+            padding-bottom: 10px;
+            font-family: sans-serif;
+            border-radius: 10px;
+
+        }
+
+        .middle1 {
+            overflow: hidden;
+        }
+
+        .container1 {
+            border-radius: 10px;
+            background: rgb(189, 209, 158);
+            color: black;
+            float: left;
+            padding: 13px 10px;
+            margin-left: 10px;
+
+        }
+
+        .container2 {
+            border-radius: 10px;
+            padding: 9px 50px;
+            margin-right: 10px;
+            background: rgb(189, 209, 158);
+            float: right;
+        }
+
+        .con1 {
+            display: flex;
+        }
+
+        .div7 {
+            margin-left: 5%;
+        }
+
+        img {
+            margin: 5px;
+        }
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/fe4e4a1a98.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div id="container">
+            <div class="brand">
+                <img src="/images/site-logo.jpg"></img>
+            </div>
+            <nav>
+                <ul type="none">
+                    <li class="active"><a href="/">Home</a></li>
+                    <% if (user) { %>
+                        <li><a href="/auth/logout">Logout</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <% if(user.type) { %>
+                            <li><a href="/register/driver_dashboard">Dashboard</a></li>
+                            <% } else { %> 
+                                <li><a href="/register/client_dashboard">Dashboard</a></li>
+                            <% } %>
+                        <% } else { %>
+                            <li><a href="/register">Register</a></li>
+                            <li><a href="/register/login">Login</a></li>   
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="bod">
+        <h1>Request a ride now</h1>
+        
+            <form action="/" method="POST">
+                <div id="place">
+                <input name="Pick_Up" class="in1" id="ip1" type="text" size="100%" placeholder="Pick up location"><label
+                    for="Pick Up" class="in1"></label>
+                <input name="Drop" class="in1" id="ip2" type="text" size="100%" placeholder="Drop location"><label
+                    for="Drop" class="in2"></label>
+                <input name="When" class="in1" id="ip3" type="datetime-local" size="100%" placeholder="When"><label
+                    for="When"></label>
+                <button type="submit" class="btn1" id="btn">Search Cabs</button>
+
+                <% errors.forEach(function(elements) {  %>
+                <p class="ui-type-error"><strong><%= elements.msg %></strong></p>
+                <% }); %>
+                </div>
+
+            </form>
+    </div>
+
+    <div class="middle">
+
+        <h1> Why ride with CITYCAB?</h1><br>
+        <div class="div7">The best way to travel to your destination</div>
+        <div class="middle1">
+            <div class="container1">
+                <div class="con1"><img src="https://cms-web.olacabs.com/00000000368.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>Cabs for Every Pocket
+                        From Sedans and <br> SUVs to Luxury cars for special occasions,<br> we have cabs to suit every
+                        pocket</p>
+                </div> 
+                <div class="con1">
+                    <img src="https://cms-web.olacabs.com/00000000374.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>CITYCAB Select
+                        A membership program with CITYCAB that <br> lets you ride
+                        a Prime Sedan at Mini <br>fares, book cabs without <br>
+                        peak pricing and has zero wait time</p>
+                </div>
+                <div class="con1">
+                    <img src="https://cms-web.olacabs.com/00000000382.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>Share and Express
+                        To travel with the lowest fares choose <br>
+                        CITYCAB Share. For a faster travel experience <br>
+                        we have Share Express on some fixed routes <br>
+                        with zero deviations. Choose your ride <br>
+                        and zoom away!</p>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="con1">
+                    <img src="https://cms-web.olacabs.com/00000000370.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>Secure and Safer Rides Verified drivers <br>
+                        ,an emergency alert <br>
+                        button, and live ride tracking are some <br>
+                        of the features that we have in place <br>
+                        to ensure you a safe travel experience.</p>
+                </div>
+                <div class="con1">
+                    <img src="https://cms-web.olacabs.com/00000000371.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>In Cab Entertainment Play music, watch <br>
+                        videos and a lot more with CITYCAB Play! <br>
+                        Also stay connected even if you are <br>
+                        travelling through poor network areas <br>
+                        with our free wifi facility.</p>
+                </div>
+                <div class="con1">
+                    <img src="https://cms-web.olacabs.com/00000000372.jpg" width="100px" height="100px"
+                        style="border-radius:10px;">
+                    <p>Cashless Rides Now go cashless and <br>
+                        travel easy. Simply recharge your <br>
+                        CITYCAB money or add your credit/debit <br>
+                        card to enjoy hassle free payments.</p>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div id="link">
+        <div id="container">
+            <div class="brand">
+                <h2>Social Links</h2>
+            </div>
+            <nav>
+                <ul type="none">
+                    <li><a href="https://web.whatsapp.com"><i class="fab fa-2x fa-whatsapp"></i></a></li>
+                    <li><a href="https://www.facebook.com"><i class="fab fa-2x fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/accounts/login/?next=/explore/"><i
+                                class="fab fa-2x fa-instagram"></i></a></li>
+                    <li><a href="https://twitter.com/?lang=en"><i class="fab fa-2x fa-twitter"></i></a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="footer">
+        <h2> CITYCAB, Copyright &copy 2020</h2>
+
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+
+    $("#btn").button()
+
+    function ftn1() {
+        var ip1 = document.getElementById("ip1").value;
+        var ip2 = document.getElementById("ip2").value;
+        var ip3 = document.getElementById("ip3").value;
+
+        if (ip1.trim() == "" || ip2.trim() == "" || ip3.trim() == "") {
+            alert("Blank data cannot accepted! please enter valid details.");
+        }
+        else {
+            alert(ip1 + ip2 + ip3);
+        }
+    }
+
+
+</script>

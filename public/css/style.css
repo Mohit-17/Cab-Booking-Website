@@ -1,0 +1,167 @@
+
+
+
+body{
+    margin:0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:0px;
+    background: url("/images/journey2.jpg") no-repeat center center ;
+    background-attachment: fixed;
+    background-size:cover;
+    height:800px;
+    
+}
+#header{
+    min-height:50px;
+    background-color:rgb(8, 8, 8);
+    font-weight:bold;
+    color:white;
+    border-bottom:2px rgb(206, 157, 157) solid;
+}
+#link{
+    margin-top:50px;
+    min-height:50px;
+    background-color:rgb(8, 8, 8);
+    font-weight:bold;
+    color:white;
+    border-bottom:2px rgb(206, 157, 157) solid;
+}
+.active{
+    background-color:rgb(176, 57, 223);
+    color:white;
+}
+#header li:hover, #link li:hover{
+    background-color: rgb(40, 148, 148);
+    cursor:pointer;
+}
+#container{
+    width:80%;
+    margin:auto;
+    overflow:hidden;         
+}
+.brand{
+    float:left;
+    padding:0px 10px;
+}
+.brand:hover{
+    cursor:pointer;
+}
+#header h2{
+    padding:0px;
+}
+#header ul, #link ul{
+    text-align:center;
+    margin:15px 20px;
+    padding:10px 10px 10px 450px; 
+}
+#header li,#link li{
+    display:inline;
+    padding:20px;
+    border-radius:20px;
+}
+#header a, #link a{
+    text-decoration: none;
+    color:white;
+}
+#footer{
+    background-color:#ff9e00;
+    color:white;
+    margin-top:0px;
+    text-align:center;
+    padding:5px;
+    min-height:40px;
+}
+/*  -----  - --  - - - - -   ------- */
+
+.bod{
+    background:black;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    width:50%;
+    padding:10px 20px 30px 20px;
+    margin:20px auto;
+    /* */
+}
+#place{
+    width:80%;
+    margin: auto auto;
+}
+
+.in1{
+    margin:10px auto;
+    padding:5px;
+    font-weight:bold;
+    font-size:16px;
+    width:80%;
+    box-shadow: inset;
+    border-radius: 5px;
+    border-color: aliceblue;
+    border: black 2px solid;
+}
+#ip3{
+    margin-left:55px;
+    float:left;
+    width:40%;
+}
+.btn1{
+    margin-top:10px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.Social{
+float:left;
+
+}
+#bod2 li{
+display: inline;
+}
+#ul1{
+
+text-align: center;
+}
+
+.middle{
+margin-top: 50px;
+margin-left: 10%;
+margin-right: 10%;
+background:whitesmoke;
+color: black;
+padding-bottom:10px;
+font-family: sans-serif;
+border-radius: 10px;
+
+}
+.middle1{
+overflow:hidden;
+}
+.container1{
+border-radius: 10px;
+background: rgb(189, 209, 158);
+color: black;
+float: left;
+padding: 13px 10px;
+margin-left:10px;
+
+}
+.container2{
+border-radius: 10px;
+padding:9px 50px;
+margin-right: 10px;
+background: rgb(189,209,158);
+float: right;
+}
+.con1{
+display: flex; 
+}
+
+.div7{
+margin-left: 5%;
+}
+img{
+margin: 5px;
+}
