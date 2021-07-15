@@ -1,7 +1,7 @@
 # Cab-Booking-Website
 This Website allows clients to request a ride by specifying his/her current location and destination which the Drivers can see and accept/reject requests for the same.
 
-Requirements
+#Requirements
 
 1.'ClientID' and 'ClientSecret' -- Should be created through Google Developer Console for using Google OAuth 2.0 Consent Screen.
 
@@ -9,7 +9,7 @@ Requirements
 
 3.Latest version of Node.Js
 
-Steps for implementing this project
+#Steps for implementing this project
 
 1.Paste your 'ClientID' and 'ClientSecret' and 'dbURI' in keys.js file present in config folder of main directory.
 
